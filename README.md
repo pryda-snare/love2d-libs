@@ -32,9 +32,45 @@ Returns a random palette of `2`, `3`, or `4` colors.
 local palette = sanzo.random(3)
 ```
 
-### Return value
+#### `sanzo.color(index)`
 
-Both functions return an array of color objects. Each color has:
+Returns a single color by its Wada color number (1–159).
+
+```lua
+local c = sanzo.color(72)  -- Citrine
+```
+
+#### `sanzo.random_color(swatch)`
+
+Returns a random single color from a swatch group (1–6).
+
+```lua
+local c = sanzo.random_color(3)  -- random green
+```
+
+| Swatch | Group |
+|---|---|
+| 1 | Reds, pinks, browns |
+| 2 | Yellows, creams |
+| 3 | Greens |
+| 4 | Blues |
+| 5 | Purples, lavenders |
+| 6 | Neutrals (white, grays, black) |
+
+#### `sanzo.random_with_color(color_index, size)`
+
+Returns a random palette containing a specific color. Pass `0` for size to get a combination of any size.
+
+```lua
+local palette = sanzo.random_with_color(72, 3)  -- 3-color combo containing Citrine
+local palette = sanzo.random_with_color(72, 0)  -- any size combo containing Citrine
+```
+
+### Return values
+
+Palette functions return an array of color objects. `sanzo.color()` and `sanzo.random_color()` return a single color object.
+
+Each color object has:
 
 | Field | Type | Description |
 |---|---|---|
@@ -42,6 +78,7 @@ Both functions return an array of color objects. Each color has:
 | `hex` | string | Hex code (e.g. `"#a3ad00"`) |
 | `rgb` | table | Normalized `{r, g, b}` in 0–1 range, for use with `love.graphics.setColor()` |
 | `rgb255` | table | Raw `{r, g, b}` in 0–255 range |
+| `swatch` | number | Swatch group (1–6) |
 
 ### Example
 
