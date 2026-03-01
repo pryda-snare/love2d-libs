@@ -117,6 +117,23 @@ function love.draw()
 end
 ```
 
+---
+
+## Examples
+
+### sanzo-browser
+
+An interactive color browser that displays all 159 Wada colors grouped by swatch, with hover info showing each color's name, hex, index, and every combination it appears in.
+
+To run it, symlink or copy `sanzo.lua` into the example folder, then launch with LÖVE:
+
+```bash
+ln -s /path/to/sanzo.lua examples/sanzo-browser/sanzo.lua
+love examples/sanzo-browser
+```
+
+---
+
 ### Data sources
 
 Combination structure from [Z4P0/sanzo](https://github.com/Z4P0/sanzo). Hex values from [sanzo-wada.dmbk.io](https://sanzo-wada.dmbk.io).
