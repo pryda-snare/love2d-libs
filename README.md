@@ -59,11 +59,15 @@ local c = sanzo.random_color(3)  -- random green
 
 #### `sanzo.random_with_color(color_index, size)`
 
-Returns a random palette containing a specific color. Pass `0` for size to get a combination of any size.
+Returns a random palette containing a specific color. Pass `0` for size to get a combination of any size. Returns `nil` if no combination of that size contains the color.
 
 ```lua
 local palette = sanzo.random_with_color(72, 3)  -- 3-color combo containing Citrine
 local palette = sanzo.random_with_color(72, 0)  -- any size combo containing Citrine
+
+if not palette then
+    palette = sanzo.random(3)  -- fall back to any random combo
+end
 ```
 
 ### Return values

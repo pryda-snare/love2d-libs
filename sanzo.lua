@@ -903,11 +903,11 @@ function M.random_with_color(color_index, size)
     for _, s in ipairs({2, 3, 4}) do
       for _, id in ipairs(entry[s]) do ids[#ids+1] = id end
     end
-    assert(#ids > 0, "no combinations contain that color")
+    if #ids == 0 then return nil end
     return PALETTES[ids[math.random(#ids)]]
   end
   local ids = entry[size]
-  assert(#ids > 0, "no combinations of size " .. size .. " contain that color")
+  if #ids == 0 then return nil end
   return PALETTES[ids[math.random(#ids)]]
 end
 
