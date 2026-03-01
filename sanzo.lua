@@ -911,4 +911,17 @@ function M.random_with_color(color_index, size)
   return PALETTES[ids[math.random(#ids)]]
 end
 
+-- Find colors by name (case-insensitive substring match)
+-- Returns an array of {index, color} for all matches
+function M.find(query)
+  local q = query:lower()
+  local results = {}
+  for i = 1, #COLORS do
+    if COLORS[i].name:lower():find(q, 1, true) then
+      results[#results+1] = {index=i, color=COLORS[i]}
+    end
+  end
+  return results
+end
+
 return M

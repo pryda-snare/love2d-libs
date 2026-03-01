@@ -70,6 +70,22 @@ if not palette then
 end
 ```
 
+#### `sanzo.find(query)`
+
+Find colors by name using a case-insensitive substring search. Returns an array of matches, each with the color's index and color object.
+
+```lua
+local results = sanzo.find("cit")
+-- finds Citrine, Buffy Citrine, Dark Citrine, Orange Citrine...
+
+for _, r in ipairs(results) do
+    print(r.index, r.color.name, r.color.hex)
+end
+
+-- use the index with other functions
+local palette = sanzo.random_with_color(results[1].index, 3)
+```
+
 ### Return values
 
 Palette functions return an array of color objects. `sanzo.color()` and `sanzo.random_color()` return a single color object.
